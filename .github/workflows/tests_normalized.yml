@@ -20,4 +20,5 @@ jobs:
         docker ps -a
         sleep 20
         sh load_tweets.sh
-        docker compose exec -T pg_normalized ./run_tests.sh
+        export PG_URL="postgresql://postgres:pass@localhost:4116/postgres"
+        sh run_tests.sh
